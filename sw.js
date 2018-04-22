@@ -1,14 +1,20 @@
-var CACHE_VERSION = 'restaurant-v1';
+var CACHE_VERSION = 'restaurant-static-v1';
+const map_api= "https://maps.googleapis.com/maps/api/js?";
+var map_key = 'key=AIzaSyDPhBhJsIqInLRWlHuiZMaALays85wvahY&libraries=places&callback=initMap'
+var map_link = map_api + search_map;
+var key_restaurant = "key=AIzaSyDPhBhJsIqInLRWlHuiZMaALays85wvahY&libraries=places&callback=initMap";
+var map_restaurant = map_api + key_restaurant;
+
 var CACHE_FILES = [
           '/',
           '/index.html',
           '/restaurant.html',
           '/js/main/app.js',
+          '/data/restaurants.json',
           '/js/dbhelper.js',
           '/js/main.js',
           '/js/restaurant_info.js',
           '/css/styles.css',
-          '/data/restaurant.json',
           '/img/1.jpg',
           '/img/2.jpg',
           '/img/3.jpg',
@@ -18,8 +24,7 @@ var CACHE_FILES = [
           '/img/7.jpg',
           '/img/8.jpg',
           '/img/9.jpg',
-          '/img/10.jpg',
-          'https://normalize-css.googlecode.com/svn/trunk/normalize.css'
+          '/img/10.jpg'
 ];
 
 

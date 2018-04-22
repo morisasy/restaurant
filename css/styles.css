@@ -3,7 +3,7 @@
 html, body, main {
    height: 100%;
 }
-body,td,th,p{
+body,td,th, p{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
 	color: #333;
@@ -24,9 +24,8 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto 1fr;
   justify-content: center;
-
-
 }
+
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -228,14 +227,7 @@ nav h1 a {
   height: 100%;
   width: 100%;
 }
-.inside #footer {
-  /*
-  bottom: 0;
-  position: absolute;
-  width: 50%;
-  */
-  
-}
+
 #restaurant-name {
   color: #f18200;
   font-family: Arial,sans-serif;
@@ -380,7 +372,6 @@ nav h1 a {
 }
 .inside #map {
   background-color: #ccc;
-  
   width: 100%;
 }
 #restaurant-container, #reviews-container {
