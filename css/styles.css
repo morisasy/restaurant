@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
-  /* min-height: 100%; */
+ 
 
 }
 #footer {
@@ -172,14 +172,14 @@ nav h1 a {
   padding: 0 30px 25px;
   text-align: left;
   /*width: 270px; */
-  min-width: 270px;
+  
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
   margin: 0;
-  max-width: 100%;
-  min-width: 100%;
+  width: 100%;
+ 
 }
 #restaurants-list li h1 {
   color: #f18200;
@@ -209,22 +209,66 @@ nav h1 a {
 }
 
 /* ====================== Restaurant Details ====================== */
+.inside {
+  background-color: #fdfdfd;
+  margin: 0;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-areas: 
+  "header"
+  "content"
+  "footer";
+  justify-content: center;
+ } 
+ 
+  
 .inside header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
+  grid-area: header;
+}
+.inside main#maincontent{
+   
+    border-top: 132px;
+    display: grid;
+    grid-gap: 10px;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "restaurant-container map-container"
+    "reviews-container map-container";
+    justify-content: center;
+    align-items: center
+
+}
+.inside footer {
+  grid-area: footer;
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
   position: fixed;
+  grid-area: map-container;
   right: 0;
-  top: 80px;
+  top: 130px;
   width: 50%;
 }
 .inside #map {
   background-color: #ccc;
   height: 100%;
+  width: 100%;
+}
+.inside restaurant-container {
+  grid-area: restaurant-container;
+  width: 100%;
+}
+
+.inside reviews-container {
+  grid-area: reviews-container;
   width: 100%;
 }
 
@@ -257,15 +301,19 @@ nav h1 a {
   text-transform: uppercase;
 	width: 100%;
 }
+#restaurant-container {
+  grid-area: restaurant-container;
+}
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   padding: 50px 40px 30px;
-  width: 50%;
+  width: 100%;
   margin: 10px;
 }
 #reviews-container {
   padding: 30px 40px 80px;
+  grid-area: reviews-container;
 }
 #reviews-container h2 {
   color: #f58500;
@@ -341,24 +389,23 @@ nav h1 a {
   top: 132px;
   width: 100%;
  }
-
- .inside #restaurant-container{
-  grid-area: restaurant-contents;
+ .inside #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
-  width: 100%;
- }
+  padding: 50px 40px 30px;
+  width: 50%;
+  margin: 10px;
+}
+ .inside #restaurant-container{
+  grid-area: restaurant-contents;
+ 
+}
  .inside #footer {
   grid-area: footer;
  }
  
  .inside #reviews-container{
   grid-area: restaurant-reviews;
-  border-bottom: 1px solid #d9d9d9;
-  border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
-  width: 100%;
  }
 
 

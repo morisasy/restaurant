@@ -1,11 +1,6 @@
 var CACHE_VERSION = 'restaurant-static-v1';
-const map_api= "https://maps.googleapis.com/maps/api/js?";
-var map_key = 'key=AIzaSyDPhBhJsIqInLRWlHuiZMaALays85wvahY&libraries=places&callback=initMap'
-var map_link = map_api + search_map;
-var key_restaurant = "key=AIzaSyDPhBhJsIqInLRWlHuiZMaALays85wvahY&libraries=places&callback=initMap";
-var map_restaurant = map_api + key_restaurant;
 
-var CACHE_FILES = [
+var CACHE_URLS = [
           '/',
           '/index.html',
           '/restaurant.html',
@@ -33,22 +28,27 @@ self.addEventListener('install', function (event) {
         caches.open(CACHE_VERSION)
             .then(function (cache) {
                 console.log('Opened cache');
-                return cache.addAll(CACHE_FILES);
+                return cache.addAll(CACHE_URLS);
             })
     );
 });
 
-self.addEventListener('activate', function (event) {
+self.addEventListener('activate', function(event) {
     event.waitUntil(
-        caches.keys().then(function(keys){
-            return Promise.all(keys.map(function(key, i){
-                if(key !== CACHE_VERSION){
-                    return caches.delete(keys[i]);
-                }
-            }))
-        })
-    )
-});
+      caches.keys().then(function(cacheNames) {
+        return Promise.all(
+          cacheNames.filter(function(cacheName) {
+            return cacheName.startsWith('restaurant-') &&
+                   cacheName != CACHE_VERSION;
+          }).map(function(cacheName) {
+            return caches.delete(cacheName);
+          })
+        );
+      })
+    );
+  });
+
+
 
 self.addEventListener('fetch', function (event) {
     event.respondWith(
