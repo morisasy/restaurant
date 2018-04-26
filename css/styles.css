@@ -1,7 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
-html, body, main {
+html, body {
    height: 100%;
+   margin: 0;
 }
 body,td,th, p{
 	font-family: Arial, Helvetica, sans-serif;
@@ -30,7 +31,18 @@ body {
   justify-content: center;
   align-content: center;
 }
-
+header {
+  grid-area: header;
+  width: 100vw;
+}
+main {
+  grid-area: main;
+  width: 100vw;
+}
+footer{
+  grid-area: footer;
+  width: 100vw;
+}
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -53,14 +65,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #maincontent {
-  grid-area: main;
   background-color: #f3f3f3;
-  height: 100%;
+  height: 100vh;
+ }
  
-
-}
 #footer {
-  grid-area: footer;
   flex-shrink: 0;
   width: 100%;
   height: 80px;
@@ -239,7 +248,7 @@ nav h1 a {
   display: grid;
   grid-gap: 10px;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr  1fr;
   grid-template-areas: 
@@ -351,33 +360,49 @@ nav h1 a {
   grid-gap: 10px;
   height: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto 1fr;
+ /* grid-template-rows: 130px auto 80px; */
   grid-template-areas: 
   "header"
   "content"
   "footer";
+  grid-template-rows: auto;
+  /* grid-auto-flow: dense; */
+
   align-items: center;
   justify-content: center;
  } 
  .inside > header {
   grid-area: header;
+  width: 100%;
  }
 
- .inside > main {
-  margin-top: 400px;
+ .inside > main#maincontent {
+  margin-top: 131px;
   grid-area: content;
-  display: flex;
-  flex-flow: nowrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+ /* grid-template-rows: 1fr 1fr auto; */
+  grid-template-areas: 
+  "map-container"
+  "container"
+ "reviews";
   width: 100%;
-  flex-direction: column;
+  grid-gap: 5px;
   justify-content: center;
   align-items: center;
+  /* min-height: 90%; */
+  height: 100vh;
  }
  .inside > footer {
   grid-area: footer;
+  width: 100%;
+  flex-shrink: 0;
+  height: 80px;
  }
  
  .inside #map-container{
+  grid-area: map-container;
   background: blue;
   height: 40%;
   width: 100%;
@@ -385,16 +410,19 @@ nav h1 a {
  }
  
  .inside #restaurant-container {
+  grid-area: container;
   border-bottom: 1px solid #d9d9d9;
-  border-top: 1px solid #fff;
-  padding: 50px 40px 30px;
-  width: 100%;
-  margin: 10px;
+    border-top: 1px solid #fff;
+    padding: 10px 20px 10px;
+    width: 100%;
+    margin: 10px;
+    margin-top: 400px;
 }
 .inside  #reviews-container {
+  grid-area: reviews;
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 50px 40px 30px;
+  padding: 10px 20px 10px;
   width: 100%;
   margin: 10px;
 }
@@ -409,6 +437,18 @@ nav h1 a {
 .inside #map {
   background-color: #ccc;
   width: 100%;
+  height: 100%;
+}
+.inside #reviews-list li {
+  background-color: #fff;
+  border: 2px solid #f3f3f3;
+  display: block;
+  list-style-type: none;
+  margin: 0 0 20px;
+  overflow: hidden;
+  padding: 0 20px 10px;
+  position: relative;
+  width: 95%;
 }
 
 }
