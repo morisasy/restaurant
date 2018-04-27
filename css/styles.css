@@ -74,6 +74,7 @@ nav {
 }
 nav h1 {
   margin: auto;
+  padding-top: 20px;
 }
 nav h1 a {
   color: #fff;
@@ -236,6 +237,17 @@ nav h1 a {
   
   
 }
+.inside #restaurant-name {
+  color: #f18200;
+  font-family: Arial,sans-serif;
+  font-size: 20pt;
+  font-weight: 200;
+  letter-spacing: 0;
+  margin: 130px 0 30px;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
 #restaurant-name {
   color: #f18200;
   font-family: Arial,sans-serif;
@@ -386,6 +398,17 @@ nav h1 a {
 .inside #map {
   background-color: #ccc;
    width: 100%;
+}
+
+.inside #restaurant-name {
+  color: #f18200;
+  font-family: Arial,sans-serif;
+  font-size: 20pt;
+  font-weight: 200;
+  letter-spacing: 0;
+  margin: 25px 0 30px;
+  text-transform: uppercase;
+  line-height: 1.1;
 }
 
 }
