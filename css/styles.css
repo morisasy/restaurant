@@ -15,6 +15,12 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 * {
   box-sizing: border-box;
 }
+img, 
+embed,
+object,
+video {
+  max-width:100%;
+}
 body {
 
 	background-color: #fdfdfd;
