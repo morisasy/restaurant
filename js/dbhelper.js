@@ -4,6 +4,7 @@
 class DBHelper {
 
   /**
+   * python3 -m http.server 8000
    * Database URL.
    * Change this to restaurants.json file location on your server.
    */
