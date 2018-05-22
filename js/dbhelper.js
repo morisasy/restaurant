@@ -9,20 +9,25 @@ class DBHelper {
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    const port = 8000 // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+    //const port = 8000 // Change this to your server port
+    //return `http://localhost:${port}/data/restaurants.json`;
+    const port = 1337 // Change this to your server port
+    return `http://localhost:${port}/restaurants`;
   }
 
-  /**
-   * Fetch all restaurants.
-   */
+  // Fetch all restaurants.
+  /*
   static fetchRestaurants(callback) {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', DBHelper.DATABASE_URL);
     xhr.onload = () => {
       if (xhr.status === 200) { // Got a success response from server!
+      
         const json = JSON.parse(xhr.responseText);
-        const restaurants = json.restaurants;
+        console.log('Request succeeded with JSON response', json);
+        //const restaurants = json.restaurants;
+        const restaurants = json;
+        console.log('Request succeeded with JSON response', restaurants);
         callback(null, restaurants);
       } else { // Oops!. Got an error from server.
         const error = (`Request failed. Returned status of ${xhr.status}`);
@@ -31,7 +36,26 @@ class DBHelper {
     };
     xhr.send();
   }
-
+  
+ */
+  static fetchRestaurants(callback) {
+    const URL = DBHelper.DATABASE_URL;
+    const opt = {
+    credentials: 'include'
+    } 
+    fetch(URL,opt)
+    .then(response => response.json())
+    .then(json => {
+      const restaurants = json;
+      console.log('Request succeeded with JSON response', json);
+      callback(null, restaurants);
+    })
+    .catch((error) => {
+      console.log('There has been a problem with your fetch operation: ', error.message);
+      callback(error, null);
+    });
+  }
+   
   /**
    * Fetch a restaurant by its ID.
    */
