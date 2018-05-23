@@ -4,12 +4,12 @@
 class DBHelper {
 
   /**
-   * python3 -m http.server 8000
+   * python3 -m http.server 3500
    * Database URL.
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    //const port = 8000 // Change this to your server port
+    //const port = 3500 // Change this to your server port
     //return `http://localhost:${port}/data/restaurants.json`;
     const port = 1337 // Change this to your server port
     return `http://localhost:${port}/restaurants`;
@@ -175,7 +175,8 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+    let urlForImage =restaurant.photograph + '.jpg';
+    return (`/img/${urlForImage}`);
   }
 
   /**
