@@ -175,8 +175,10 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    let urlForImage =restaurant.photograph + '.jpg';
-    return (`/img/${urlForImage}`);
+    // restaurant.photograph is missing on the last object
+    // I have to use id instead if it.
+    let urlForImage =restaurant.id + '.jpg';
+     return (`/img/${urlForImage}`);
   }
 
   /**
