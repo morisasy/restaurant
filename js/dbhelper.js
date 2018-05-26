@@ -16,28 +16,7 @@ class DBHelper {
   }
 
   // Fetch all restaurants.
-  /*
-  static fetchRestaurants(callback) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', DBHelper.DATABASE_URL);
-    xhr.onload = () => {
-      if (xhr.status === 200) { // Got a success response from server!
-      
-        const json = JSON.parse(xhr.responseText);
-        console.log('Request succeeded with JSON response', json);
-        //const restaurants = json.restaurants;
-        const restaurants = json;
-        console.log('Request succeeded with JSON response', restaurants);
-        callback(null, restaurants);
-      } else { // Oops!. Got an error from server.
-        const error = (`Request failed. Returned status of ${xhr.status}`);
-        callback(error, null);
-      }
-    };
-    xhr.send();
-  }
   
- */
   static fetchRestaurants(callback) {
     const URL = DBHelper.DATABASE_URL;
     const opt = {

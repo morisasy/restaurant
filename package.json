@@ -1,0 +1,22 @@
+{
+  "name": "restaurant",
+  "version": "1.0.0",
+  "description": "Restaurant Review App",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morisasy/restaurant.git"
+  },
+  "author": "Mohamed Risasi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morisasy/restaurant/issues"
+  },
+  "homepage": "https://github.com/morisasy/restaurant#readme",
+  "dependencies": {
+    "idb": "^2.1.2"
+  }
+}

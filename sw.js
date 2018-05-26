@@ -29,6 +29,19 @@ const restaurantData = [
   { id: 2, name: "Donna", age: 32, email: "donna@home.org" }
 ];
  //*/
+ function  dataRestaurant (callback){
+  DBHelper.fetchRestaurants((error, restaurants)=>{
+    if (error) {
+      throw Error(error.message);
+     
+    } else {
+      console.log('Service Worker', restaurants);
+     return restaurants; 
+    }
+   })
+
+ }
+  
 
 var request = indexedDB.open(dbName, 1);
 /** 
@@ -38,6 +51,7 @@ var request = indexedDB.open('dbRestaurants', 1, function(upgradeDB) {
 });
 */
 request.onupgradeneeded = function(event) { 
+  console.log('restaurantsData from Server', dataRestaurant);
   // Save the IDBDatabase interface 
   var db = event.target.result;
 
