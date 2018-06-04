@@ -2,3 +2,7 @@ css/styles1.css
 css/fake.css
 css/clone.css
 appclone.js
+node_modules
+data
+CODEOWNERS
+requirements.txt
